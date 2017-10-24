@@ -1,0 +1,18 @@
+tomcatserver:
+    image: ragubirsingh19/springboot_docker_tomcat_mongodb-2.0:1.0.0
+    container_name: tomcat
+    ports:
+        - 8088
+    hostname: tomcat
+    links:
+        - mongodb:mongodb
+            
+mongodb:
+    image: mongo
+    container_name: mongodb
+    ports:
+        - 27017
+    hostname: mongodb
+    volumes:
+        - mongo:/data/db
+
